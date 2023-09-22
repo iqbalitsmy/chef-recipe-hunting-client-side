@@ -2,6 +2,9 @@ import React from 'react';
 import Navigation from '../components/Navigation/Navigation';
 import Carousels from '../components/Carousels/Carousels';
 import SliderCards from '../components/SliderCards/SliderCards';
+import ExperienceSection from '../components/ExperienceSection/ExperienceSection';
+import ConsultingSection from '../components/ConsultingSection/ConsultingSection';
+import CateringSection from '../components/CateringSection/CateringSection';
 
 const Main = () => {
     const images = [
@@ -30,7 +33,16 @@ const Main = () => {
                 <SliderCards></SliderCards>
             </header>
             <main>
-                
+                <section className='container mx-auto bg-[#f2ece0]'>
+                    <ExperienceSection></ExperienceSection>
+                </section>
+                <section className='container mx-auto bg-[#f2ece0] p-2'>
+                    <ConsultingSection></ConsultingSection>
+                </section>
+                <section className='container mx-auto bg-[#f2ece0] p-2'>
+                    <CateringSection></CateringSection>
+                </section>
+
             </main>
         </div>
     );

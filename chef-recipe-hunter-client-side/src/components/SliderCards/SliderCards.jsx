@@ -23,7 +23,7 @@ const SliderCards = () => {
     ]
 
     return (
-        <section className='container mx-auto bg-[#f2ece0] grid grid-cols-3 gap-2 pt-2 px-2 mb-36'>
+        <section className='container mx-auto bg-[#f2ece0] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 pt-2 px-2 pb-28'>
             {
                 cartDetails.map((cart, i) => {
                     return (<SliderCard cart={cart} key={i}></SliderCard>)
