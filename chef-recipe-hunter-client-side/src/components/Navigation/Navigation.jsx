@@ -3,21 +3,23 @@ import logo from '../../assets/logo/chef hunter-logos_transparent.png'
 
 const Navigation = () => {
     return (
-        <nav className='flex container mx-auto'>
-            <div className='flex gap-2'>
-                <a className='' href="/">Home</a>
-                <a href="/">Menu</a>
-                <a href="/">Services</a>
+        <nav className='flex justify-between container mx-auto text-[#757475] uppercase text-xl'>
+            <div className='flex justify-between items-center gap-2'>
+                <a className='hover:text-[#f2ecda]' href="/">Home</a>
+                <a className='hover:text-[#f2ecda]' href="/">Menu</a>
+                <a className='hover:text-[#f2ecda]' href="/">Services</a>
             </div>
-            <div className=''>
+            <div className='w-auto'>
                 <a className='' href="/">
-                    <img className='h-1/3 w-auto' src={logo} alt="" />
+                    <img className='h-36 w-auto' src={logo} alt="" />
                 </a>
             </div>
-            <div>
-                <a href="">Private Chef</a>
-                <a href="">Features</a>
-                <a href="">Contact Us</a>
+            <div className='flex justify-between items-center gap-2'> 
+                <a className='hover:text-[#f2ecda]' href="">Private Chef</a>
+                <a className='hover:text-[#f2ecda]' href="">Contact Us</a>
+                <a className='hover:text-[#f2ecda]' href="">
+                    <button type="button">Login</button>
+                </a>
             </div>
         </nav>
     );
