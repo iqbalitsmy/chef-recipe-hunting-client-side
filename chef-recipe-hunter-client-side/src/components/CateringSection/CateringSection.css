@@ -1,0 +1,23 @@
+.sc_services_item_thumb::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background: linear-gradient(to top, #fff 0%, rgba(244, 244, 244, 0) 100%);
+}
+
+.cart-button {
+    transition: bottom 0.4s ease;
+}
+.cart-title {
+    transition: top 0.4s ease 0.2s;
+}
+
+.card-details:hover .card-title {
+    top: -10px;
+}
+.card-details:hover .cart-button {
+    bottom: 35%;
+}

@@ -5,6 +5,7 @@ import SliderCards from '../components/SliderCards/SliderCards';
 import ExperienceSection from '../components/ExperienceSection/ExperienceSection';
 import ConsultingSection from '../components/ConsultingSection/ConsultingSection';
 import CateringSection from '../components/CateringSection/CateringSection';
+import MenusSection from '../components/MenusSection/MenusSection';
 
 const Main = () => {
     const images = [
@@ -42,7 +43,9 @@ const Main = () => {
                 <section className='container mx-auto bg-[#f2ece0] p-2'>
                     <CateringSection></CateringSection>
                 </section>
-
+                <section className='container mx-auto bg-[#f2ece0]'>
+                    <MenusSection></MenusSection>
+                </section>
             </main>
         </div>
     );
