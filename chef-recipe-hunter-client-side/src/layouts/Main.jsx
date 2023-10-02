@@ -6,6 +6,7 @@ import ExperienceSection from '../components/ExperienceSection/ExperienceSection
 import ConsultingSection from '../components/ConsultingSection/ConsultingSection';
 import CateringSection from '../components/CateringSection/CateringSection';
 import MenusSection from '../components/MenusSection/MenusSection';
+import AboutUsSection from '../components/AboutUsSection/AboutUsSection';
 
 const Main = () => {
     const images = [
@@ -45,6 +46,9 @@ const Main = () => {
                 </section>
                 <section className='container mx-auto bg-[#f2ece0]'>
                     <MenusSection></MenusSection>
+                </section>
+                <section className='container mx-auto bg-[#f2ece0]'>
+                    <AboutUsSection></AboutUsSection>
                 </section>
             </main>
         </div>
