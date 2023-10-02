@@ -7,6 +7,8 @@ import ConsultingSection from '../components/ConsultingSection/ConsultingSection
 import CateringSection from '../components/CateringSection/CateringSection';
 import MenusSection from '../components/MenusSection/MenusSection';
 import AboutUsSection from '../components/AboutUsSection/AboutUsSection';
+import Newsletter from '../components/Newsletter/Newsletter';
+import FooterNav from '../components/FooterNav/FooterNav';
 
 const Main = () => {
     const images = [
@@ -51,6 +53,14 @@ const Main = () => {
                     <AboutUsSection></AboutUsSection>
                 </section>
             </main>
+            <footer>
+                <section className='container mx-auto'>
+                    <Newsletter></Newsletter>
+                </section>
+                <section className='container mx-auto'>
+                    <FooterNav></FooterNav>
+                </section>
+            </footer>
         </div>
     );
 };
