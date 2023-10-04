@@ -30,9 +30,9 @@ const Newsletter = () => {
                     <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d645.4223112888759!2d90.3698826294246!3d23.780879640992055!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjPCsDQ2JzUxLjgiTiA5MMKwMjInMTIuMCJF!5e0!3m2!1sen!2sbd!4v1696267363438!5m2!1sen!2sbd"
                         
                         className='w-full lg:w-[400px] h-[300px]'
-                        allowfullscreen=""
+                        allowFullScreen=""
                         loading="lazy"
-                        referrerpolicy="no-referrer-when-downgrade"
+                        referrerPolicy="no-referrer-when-downgrade"
                     ></iframe>
                 </div>
             </aside>

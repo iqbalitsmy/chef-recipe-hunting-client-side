@@ -1,0 +1,10 @@
+.login-in {
+    outline: 0;
+    border-width: 0 0 2px;
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.login-in:focus, .login-in:hover {
+    border-width: 0 0 2px;
+    border-color: #f4d699;
+}
