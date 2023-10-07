@@ -9,6 +9,7 @@ import MenusSection from '../components/MenusSection/MenusSection';
 import AboutUsSection from '../components/AboutUsSection/AboutUsSection';
 import Newsletter from '../components/Newsletter/Newsletter';
 import FooterNav from '../components/FooterNav/FooterNav';
+import ChefProfileContainer from '../components/ChefProfileContainer/ChefProfileContainer';
 
 const Main = () => {
     const images = [
@@ -38,6 +39,9 @@ const Main = () => {
             </header>
             <main>
                 <section className='container mx-auto bg-[#f2ece0]'>
+                    <ChefProfileContainer></ChefProfileContainer>
+                </section>
+                <section className='container mx-auto bg-[#f2ece0]'>
                     <ExperienceSection></ExperienceSection>
                 </section>
                 <section className='container mx-auto bg-[#f2ece0] p-2'>
@@ -46,8 +50,11 @@ const Main = () => {
                 <section className='container mx-auto bg-[#f2ece0] p-2'>
                     <CateringSection></CateringSection>
                 </section>
-                <section className='container mx-auto bg-[#f2ece0]'>
+                {/* <section className='container mx-auto bg-[#f2ece0]'>
                     <MenusSection></MenusSection>
+                </section> */}
+                <section className='container mx-auto bg-[#f2ece0]'>
+                    
                 </section>
                 <section className='container mx-auto bg-[#f2ece0]'>
                     <AboutUsSection></AboutUsSection>

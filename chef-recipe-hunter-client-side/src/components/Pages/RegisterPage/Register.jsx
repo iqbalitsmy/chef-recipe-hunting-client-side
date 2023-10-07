@@ -1,12 +1,59 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import './Register.css'
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
+import { AuthContext } from '../../../provider/AuthProvider';
+
 
 const Register = () => {
+    const [error, setError] = useState("");
+    const { createUser, signInWithGoogle, user } = useContext(AuthContext);
+
+    const handleLogin = (event) => {
+        event.preventDefault();
+
+        const form = event.target;
+        const name = form.firstName.value + " " + form.lastName.value;
+        const email = form.email.value;
+        const password = form.password.value;
+        const confirmPassword = form.confirmPassword.value;
+
+        console.log(name, email, password, confirmPassword);
+
+        setError("");
+
+        if (password.length < 6 && confirmPassword.length < 6) {
+            setError("Password must have 6 characters");
+            return;
+        } else if (password !== confirmPassword) {
+            setError("The password is not match");
+            return;
+        } else {
+
+            createUser(email, password)
+                .then((result) => {
+                    console.log(result.user)
+                }).catch(err => {
+                    console.log(err.message)
+                })
+        }
+    }
+
+    const handleSignInWithGoogle = () => {
+        signInWithGoogle()
+            .then((result) => {
+                console.log(result.user)
+            }).catch(err => {
+                console.log(err.message)
+            })
+    }
+
+    if (user) {
+        return <Navigate to="/home" replace />;
+    }
 
     return (
         <section className='container mx-auto grid justify-center pt-8 pb-20'>
-            <form className='text-gray-400 text-center'>
+            <form className='text-gray-400 text-center' onSubmit={handleLogin}>
                 <div className='mb-16 flex'>
                     <h1 className='text-gray-200 text-5xl font-extrabold'>
                         We Can’t Wait to Get You Started
@@ -16,7 +63,7 @@ const Register = () => {
                     <div className="mb-10 w-full">
                         <input
                             type="text"
-                            id="first-name"
+                            id="firstName"
                             className="register-in text-base w-full py-4 bg-transparent transition-all"
                             placeholder="First Name*" required
                         />
@@ -24,7 +71,7 @@ const Register = () => {
                     <div className="mb-10 w-full">
                         <input
                             type="text"
-                            id="last-name"
+                            id="lastName"
                             className="register-in text-base w-full py-4 bg-transparent transition-all"
                             placeholder="Last Name*" required
                         />
@@ -40,8 +87,8 @@ const Register = () => {
                         />
                     </div>
                 </div>
-                <div className='flex flex-col md:flex-row gap-8 w-full'>
-                    <div className="mb-10 w-full">
+                <div className='mb-4 flex flex-col md:flex-row gap-8 w-full'>
+                    <div className="w-full">
                         <input
                             type="password"
                             id="password"
@@ -49,14 +96,19 @@ const Register = () => {
                             placeholder="Password*" required
                         />
                     </div>
-                    <div className="mb-10 w-full">
+                    <div className="w-full">
                         <input
                             type="password"
-                            id="confirm-password"
+                            id="confirmPassword"
                             className="register-in text-base w-full py-4 bg-transparent transition-all"
                             placeholder="Confirm Password*" required
                         />
                     </div>
+                </div>
+                <div className='text-red-500 mb-4'>
+                    {
+                        error && <p>{error}</p>
+                    }
                 </div>
                 <div className="flex items-start mb-10">
                     <div className="flex items-center h-5">
@@ -72,8 +124,8 @@ const Register = () => {
                 </div>
                 <div className='mb-4'>
                     <button
-                        className='py-2 px-11 text-lg font-medium tracking-widest uppercase text-white bg-gray-800 hover:bg-gray-900 border-[1px] border-[#f4d699] rounded-md'
-                        type="button"
+                        className='py-2 px-11 text-lg font-medium tracking-widest uppercase text-white bg-gray-900 hover:bg-gray-800 border-[1px] border-[#f4d699] rounded-md'
+                        type="submit"
                     >
                         Sign Up
                     </button>
@@ -88,13 +140,14 @@ const Register = () => {
                 </div>
                 <div className='flex flex-col gap-8 w-fit mx-auto'>
                     <button
-                        className='py-2 px-11 text-lg font-medium tracking-widest uppercase text-white bg-gray-800 hover:bg-gray-900 border-[1px] border-[#f4d699] rounded-md'
+                        className='py-2 px-11 text-lg font-medium tracking-widest uppercase text-white bg-gray-900 hover:bg-gray-800 border-[1px] border-[#f4d699] rounded-md'
                         type="button"
+                        onClick={handleSignInWithGoogle}
                     >
                         Sign Up with Google
                     </button>
                     <button
-                        className='py-2 px-11 text-lg font-medium tracking-widest uppercase text-white bg-gray-800 hover:bg-gray-900 border-[1px] border-[#f4d699] rounded-md'
+                        className='py-2 px-11 text-lg font-medium tracking-widest uppercase text-white bg-gray-900 hover:bg-gray-800 border-[1px] border-[#f4d699] rounded-md'
                         type="button"
                     >
                         Sign Up with Github

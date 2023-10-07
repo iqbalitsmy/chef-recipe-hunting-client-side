@@ -1,11 +1,52 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './Login.css'
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
+import { AuthContext } from '../../../provider/AuthProvider';
 
 const Login = () => {
+    const { signIn, signInWithGoogle, signInWithGithub, user } = useContext(AuthContext)
+
+    const handleLogin = (event) => {
+        event.preventDefault();
+        const form = event.target;
+        const email = form.email.value;
+        const password = form.password.value;
+
+        console.log(email, password);
+
+        signIn(email, password)
+            .then((result) => {
+                console.log(result.user)
+            }).catch(err => {
+                console.log(err.message)
+            })
+    }
+
+    const handleSignInWithGoogle = () => {
+        signInWithGoogle()
+            .then((result) => {
+                console.log(result.user)
+            }).catch(err => {
+                console.log(err.message)
+            })
+    }
+
+    const handleSignInWithGithub = () => {
+        signInWithGithub()
+            .then((result) => {
+                console.log(result.user)
+            }).catch(err => {
+                console.log(err.message)
+            })
+    }
+
+    if (user) {
+        return <Navigate to="/home"  replace/>;
+    }
+
     return (
-        <section className='container mx-auto grid justify-center pt-8 pb-20'>
-            <form className='text-gray-400 text-center'>
+        <section className='container mx-auto grid justify-center pt-8 pb-20' >
+            <form className='text-gray-400 text-center' onSubmit={handleLogin}>
                 <div className='mb-16 flex'>
                     <h1 className='text-gray-200 text-5xl font-extrabold'>
                         We Can’t Wait to Get You Started
@@ -31,10 +72,10 @@ const Login = () => {
                         />
                     </div>
                 </div>
-                <div>
+                <div className='mb-4'>
                     <button
-                        className='py-3 px-11 mb-6 text-lg font-medium tracking-widest uppercase text-white bg-gray-800 hover:bg-gray-900 border-[2px] border-[#f4d699] rounded-3xl '
-                        type="button"
+                        className='py-2 px-11 text-lg font-medium tracking-widest uppercase text-white bg-gray-800 hover:bg-gray-900 border-[1px] border-[#f4d699] rounded-md'
+                        type="submit"
                     >
                         Login
                     </button>
@@ -51,18 +92,20 @@ const Login = () => {
                     <button
                         className='py-2 px-11 text-lg font-medium tracking-widest uppercase text-white bg-gray-800 hover:bg-gray-900 border-[1px] border-[#f4d699] rounded-md'
                         type="button"
+                        onClick={handleSignInWithGoogle}
                     >
                         Login with Google
                     </button>
                     <button
                         className='py-2 px-11 text-lg font-medium tracking-widest uppercase text-white bg-gray-800 hover:bg-gray-900 border-[1px] border-[#f4d699] rounded-md'
                         type="button"
+                        onClick={handleSignInWithGithub}
                     >
                         Login with Github
                     </button>
                 </div>
             </form>
-        </section>
+        </section >
     );
 };
 

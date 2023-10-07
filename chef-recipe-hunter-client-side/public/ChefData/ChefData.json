@@ -1,0 +1,74 @@
+[
+    {
+        "id": 1,
+        "profile": "https://www.dining-out.co.za/ftp/cp/SavagesNewChefProfile.jpg",
+        "name": "Chef Alice Smith",
+        "yearsOfExperience": 8,
+        "numberOfRecipes": 70,
+        "likes": 1200,
+        "recipes": {
+            "text": "",
+            "link": "URL_to_Explore_Recipes1"
+        }
+    },
+    {
+        "id": 2,
+        "profile": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7GYeA2KJ-nAKqP4GK0hS27RLEdCAP0A3ajw&usqp=CAU",
+        "name": "Chef David Johnson",
+        "yearsOfExperience": 15,
+        "numberOfRecipes": 90,
+        "likes": 1800,
+        "recipes": {
+            "text": "Check Out Recipes",
+            "link": "URL_to_Check_Out_Recipes2"
+        }
+    },
+    {
+        "id": 3,
+        "profile": "https://chefin.com.au/wp-content/uploads/2021/02/chef-jason-ludiwg-profile-1.jpg",
+        "name": "Chef Sarah Brown",
+        "yearsOfExperience": 5,
+        "numberOfRecipes": 40,
+        "likes": 800,
+        "recipes": {
+            "text": "Browse Recipes",
+            "link": "URL_to_Browse_Recipes3"
+        }
+    },
+    {
+        "id": 4,
+        "profile": "https://www.avenuecalgary.com/wp-content/uploads/ChefProfile-MichaelAllemeier.jpg",
+        "name": "Chef Michael Lee",
+        "yearsOfExperience": 12,
+        "numberOfRecipes": 60,
+        "likes": 1500,
+        "recipes": {
+            "text": "Discover Recipes",
+            "link": "URL_to_Discover_Recipes4"
+        }
+    },
+    {
+        "id": 5,
+        "profile": "https://foodie.sysco.com/wp-content/uploads/2019/07/MarcusMeansChefProfile_800x850.jpg",
+        "name": "Chef Emily White",
+        "yearsOfExperience": 7,
+        "numberOfRecipes": 55,
+        "likes": 1100,
+        "recipes": {
+            "text": "View Delicious Recipes",
+            "link": "URL_to_View_Delicious_Recipes5"
+        }
+    },
+    {
+        "id": 6,
+        "profile": "https://www.yorkshirepost.co.uk/webimg/QVNIMTE3ODE4Mzkx.jpg",
+        "name": "Chef James Brown",
+        "yearsOfExperience": 9,
+        "numberOfRecipes": 65,
+        "likes": 1300,
+        "recipes": {
+            "text": "Explore Tasty Recipes",
+            "link": "URL_to_Explore_Tasty_Recipes6"
+        }
+    }
+]
