@@ -10,7 +10,9 @@ const CateringCard = ({ detais }) => {
                     <img
                         className='object-cover object-center w-full'
                         src={detais?.src}
-                        alt="" />
+                        alt=""
+                        loading='lazy'
+                    />
                 </div>
             </div>
             <div className='bg-white pt-8 text-center relative card-details h-32'>

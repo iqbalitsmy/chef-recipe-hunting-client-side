@@ -12,6 +12,7 @@ import FooterNav from '../components/FooterNav/FooterNav';
 import ChefProfileContainer from '../components/ChefProfileContainer/ChefProfileContainer';
 
 const Main = () => {
+    // Carousels data
     const images = [
         {
             src: 'https://img.freepik.com/free-photo/chef-kitchen-taking-notes_23-2148006636.jpg',
@@ -19,7 +20,7 @@ const Main = () => {
             description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem ea eveniet obcaecati facilis, iusto unde."
         },
         {
-            src: 'https://img.freepik.com/free-photo/table-full-food-chairs_23-2148941561.jpg',
+            src: 'https://us.123rf.com/450wm/starush/starush2305/starush230508760/205279698-a-bunch-of-food-that-is-on-a-table-ai-generative-image.jpg',
             title: "We'll Take Care Of All The Details",
             description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem ea eveniet obcaecati facilis, iusto unde."
         },
@@ -44,7 +45,7 @@ const Main = () => {
                 <section className='container mx-auto bg-[#f2ece0]'>
                     <ExperienceSection></ExperienceSection>
                 </section>
-                <section className='container mx-auto bg-[#f2ece0] p-2'>
+                <section className='container mx-auto bg-[#f2ece0] p-2' id='services'>
                     <ConsultingSection></ConsultingSection>
                 </section>
                 <section className='container mx-auto bg-[#f2ece0] p-2'>
@@ -53,9 +54,6 @@ const Main = () => {
                 {/* <section className='container mx-auto bg-[#f2ece0]'>
                     <MenusSection></MenusSection>
                 </section> */}
-                <section className='container mx-auto bg-[#f2ece0]'>
-                    
-                </section>
                 <section className='container mx-auto bg-[#f2ece0]'>
                     <AboutUsSection></AboutUsSection>
                 </section>

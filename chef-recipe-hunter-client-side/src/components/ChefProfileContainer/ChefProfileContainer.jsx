@@ -7,7 +7,8 @@ const ChefProfileContainer = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const res = await fetch("http://localhost:3000/chefs");
+                // const res = await fetch("http://localhost:3000/chefs");
+                const res = await fetch("https://chef-recipe-hunting-server-side-iqbalitsmy.vercel.app/chefs");
                 const data = await res.json();
                 setChef(data);
             } catch (error) {

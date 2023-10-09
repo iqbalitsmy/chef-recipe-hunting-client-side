@@ -1,7 +1,7 @@
 import React from 'react';
 import dinnerImg from '../../assets/icons/utensils-solid.svg';
-import brunchImg  from '../../assets/icons/newspaper-regular.svg'
-import veganImg  from '../../assets/icons/leaf-solid.svg'
+import brunchImg from '../../assets/icons/newspaper-regular.svg'
+import veganImg from '../../assets/icons/leaf-solid.svg'
 
 const MenusSection = () => {
     return (
@@ -28,7 +28,9 @@ const MenusSection = () => {
                         <div className='rounded-[50%] hover:bg-[#b49ebf] flex justify-center items-center'>
                             <img
                                 className='h-14 w-full object-fill object-center rounded-[50%]'
-                                src={dinnerImg} alt="Dinner " />
+                                src={dinnerImg} alt="Dinner"
+                                loading='lazy'
+                            />
                         </div>
                         <div
                             className='grow'
@@ -45,7 +47,9 @@ const MenusSection = () => {
                         <div className='rounded-[50%] hover:bg-[#b49ebf] flex justify-center items-center'>
                             <img
                                 className='h-14 w-full object-fill object-center rounded-[50%]'
-                                src={brunchImg} alt="Dinner " />
+                                src={brunchImg} alt="Dinner"
+                                loading='lazy'
+                            />
                         </div>
                         <div
                             className='grow'
@@ -62,7 +66,9 @@ const MenusSection = () => {
                         <div className='rounded-[50%] hover:bg-[#b49ebf] flex justify-center items-center'>
                             <img
                                 className='h-14 w-full object-fill object-center rounded-[50%]'
-                                src={veganImg} alt="Dinner " />
+                                src={veganImg} alt="Dinner "
+                                loading='lazy'
+                            />
                         </div>
                         <div
                             className='grow'

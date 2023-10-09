@@ -6,7 +6,7 @@ import { AuthContext } from '../../../provider/AuthProvider';
 
 const Register = () => {
     const [error, setError] = useState("");
-    const { createUser, signInWithGoogle, user } = useContext(AuthContext);
+    const { createUser, signInWithGoogle, signInWithGithub, signInUpdateProfile, user } = useContext(AuthContext);
 
     const handleLogin = (event) => {
         event.preventDefault();
@@ -16,11 +16,12 @@ const Register = () => {
         const email = form.email.value;
         const password = form.password.value;
         const confirmPassword = form.confirmPassword.value;
+        const photourl = form.photourl.value;
 
-        console.log(name, email, password, confirmPassword);
+        // console.log(name, email, password, confirmPassword);
 
         setError("");
-
+        // Password validation
         if (password.length < 6 && confirmPassword.length < 6) {
             setError("Password must have 6 characters");
             return;
@@ -28,8 +29,15 @@ const Register = () => {
             setError("The password is not match");
             return;
         } else {
-
+            // Create User with email
             createUser(email, password)
+                .then((result) => {
+                    console.log(result.user)
+                }).catch(err => {
+                    console.log(err.message)
+                })
+
+            signInUpdateProfile(name, photourl)
                 .then((result) => {
                     console.log(result.user)
                 }).catch(err => {
@@ -38,6 +46,7 @@ const Register = () => {
         }
     }
 
+    // Sign in with Google
     const handleSignInWithGoogle = () => {
         signInWithGoogle()
             .then((result) => {
@@ -47,18 +56,32 @@ const Register = () => {
             })
     }
 
+    // login with Github
+    const handleSignInWithGithub = () => {
+        signInWithGithub()
+            .then((result) => {
+                console.log(result.user)
+            }).catch(err => {
+                setError("Invalid email or password");
+                console.log(err.message)
+            })
+    }
+
+    // Redirect to home page
     if (user) {
         return <Navigate to="/home" replace />;
     }
 
     return (
         <section className='container mx-auto grid justify-center pt-8 pb-20'>
+            {/* Sign up form */}
             <form className='text-gray-400 text-center' onSubmit={handleLogin}>
                 <div className='mb-16 flex'>
                     <h1 className='text-gray-200 text-5xl font-extrabold'>
                         We Can’t Wait to Get You Started
                     </h1>
                 </div>
+                {/* Name input */}
                 <div className='flex flex-col md:flex-row gap-8 w-full'>
                     <div className="mb-10 w-full">
                         <input
@@ -77,6 +100,7 @@ const Register = () => {
                         />
                     </div>
                 </div>
+                {/* Email input */}
                 <div className='flex flex-col md:flex-row gap-8 w-full'>
                     <div className="mb-10 w-full">
                         <input
@@ -87,6 +111,18 @@ const Register = () => {
                         />
                     </div>
                 </div>
+                {/* Photo Url */}
+                <div className='flex flex-col md:flex-row gap-8 w-full'>
+                    <div className="mb-10 w-full">
+                        <input
+                            type="url"
+                            id="photourl"
+                            className="register-in text-base w-full py-4 bg-transparent transition-all"
+                            placeholder="Photo URL*" required
+                        />
+                    </div>
+                </div>
+                {/* password */}
                 <div className='mb-4 flex flex-col md:flex-row gap-8 w-full'>
                     <div className="w-full">
                         <input
@@ -96,6 +132,7 @@ const Register = () => {
                             placeholder="Password*" required
                         />
                     </div>
+                    {/* confirm password */}
                     <div className="w-full">
                         <input
                             type="password"
@@ -105,6 +142,8 @@ const Register = () => {
                         />
                     </div>
                 </div>
+
+                {/* Error message */}
                 <div className='text-red-500 mb-4'>
                     {
                         error && <p>{error}</p>
@@ -133,11 +172,15 @@ const Register = () => {
                 <div className='mb-6'>
                     <label htmlFor="remember" className="ml-2 text-sm font-medium">Already Have an Account? <Link className='text-blue-600' to='/login'>Login</Link></label>
                 </div>
+
+                {/* Horizontal Line */}
                 <div className='mb-4 flex justify-center items-center gap-4'>
                     <hr className='w-full opacity-70' />
                     <p>Or</p>
                     <hr className='w-full opacity-70' />
                 </div>
+
+                {/* Login Method */}
                 <div className='flex flex-col gap-8 w-fit mx-auto'>
                     <button
                         className='py-2 px-11 text-lg font-medium tracking-widest uppercase text-white bg-gray-900 hover:bg-gray-800 border-[1px] border-[#f4d699] rounded-md'
@@ -149,6 +192,7 @@ const Register = () => {
                     <button
                         className='py-2 px-11 text-lg font-medium tracking-widest uppercase text-white bg-gray-900 hover:bg-gray-800 border-[1px] border-[#f4d699] rounded-md'
                         type="button"
+                        onClick={handleSignInWithGithub}
                     >
                         Sign Up with Github
                     </button>

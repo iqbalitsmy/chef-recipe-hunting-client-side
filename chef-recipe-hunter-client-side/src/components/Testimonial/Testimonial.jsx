@@ -2,15 +2,17 @@ import React from 'react';
 
 const Testimonial = () => {
     return (
-        <div className="mb-12 md:mb-0 p-3 pt-8 bg-white rounded-lg shadow-md hover:scale-[1.05] transition-all">
-            <div className="mb-6 flex justify-center">
+        <div className="mb-12 md:mb-0 p-3 pt-5 bg-white rounded-lg shadow-md hover:scale-[1.05] transition-all">
+            <div className="mb-4 flex justify-center">
                 <img
                     src="https://tecdn.b-cdn.net/img/Photos/Avatars/img%20(1).jpg"
-                    className="w-32 rounded-full shadow-lg dark:shadow-black/30" />
+                    className="w-32 rounded-full shadow-lg dark:shadow-black/30"
+                    loading='lazy'
+                />
             </div>
             <div className='px-4'>
                 <h5 className="mb-4 text-xl font-semibold">Maria Smantha</h5>
-                <p className="mb-4">
+                <p className="mb-4 text-sm font-light">
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         fill="currentColor"

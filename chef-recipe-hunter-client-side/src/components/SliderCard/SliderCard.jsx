@@ -2,7 +2,7 @@ import React from 'react';
 import './SliderCard.css'
 
 const SliderCard = ({ cart }) => {
-    console.log(cart.src)
+    
     return (
         <div>
             <div className="slider-container">

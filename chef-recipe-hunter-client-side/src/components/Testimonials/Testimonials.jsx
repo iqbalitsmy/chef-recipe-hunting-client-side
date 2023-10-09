@@ -27,11 +27,11 @@ const Testimonials = () => {
                         slidesPerView: 1,
                         spaceBetween: 10,
                     },
-                    '@0.85': {
+                    '@0.80': {
                         slidesPerView: 2,
                         spaceBetween: 20,
                     },
-                    '@1.00': {
+                    '@1.20': {
                         slidesPerView: 3,
                         spaceBetween: 40,
                     },

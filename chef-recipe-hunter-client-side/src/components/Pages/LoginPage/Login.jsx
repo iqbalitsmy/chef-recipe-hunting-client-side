@@ -1,10 +1,11 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import './Login.css'
 import { Link, Navigate } from 'react-router-dom';
 import { AuthContext } from '../../../provider/AuthProvider';
 
 const Login = () => {
-    const { signIn, signInWithGoogle, signInWithGithub, user } = useContext(AuthContext)
+    const [error, setError] = useState("");
+    const { signIn, signInWithGoogle, signInWithGithub, user } = useContext(AuthContext);
 
     const handleLogin = (event) => {
         event.preventDefault();
@@ -14,38 +15,47 @@ const Login = () => {
 
         console.log(email, password);
 
+        // Sign in with email or password
+        setError("");
         signIn(email, password)
             .then((result) => {
                 console.log(result.user)
             }).catch(err => {
+                setError("Invalid email or password");
                 console.log(err.message)
             })
     }
 
+    // login with Google
     const handleSignInWithGoogle = () => {
         signInWithGoogle()
             .then((result) => {
                 console.log(result.user)
             }).catch(err => {
+                setError("Invalid email or password");
                 console.log(err.message)
             })
     }
 
+    // login with Github
     const handleSignInWithGithub = () => {
         signInWithGithub()
             .then((result) => {
                 console.log(result.user)
             }).catch(err => {
+                setError("Invalid email or password");
                 console.log(err.message)
             })
     }
 
+    // Redirect to home page
     if (user) {
-        return <Navigate to="/home"  replace/>;
+        return <Navigate to="/home" replace />;
     }
 
     return (
         <section className='container mx-auto grid justify-center pt-8 pb-20' >
+            {/* Login form */}
             <form className='text-gray-400 text-center' onSubmit={handleLogin}>
                 <div className='mb-16 flex'>
                     <h1 className='text-gray-200 text-5xl font-extrabold'>
@@ -72,6 +82,13 @@ const Login = () => {
                         />
                     </div>
                 </div>
+
+                {/* Error message */}
+                <div className='text-red-500 mb-4'>
+                    {
+                        error && <p>{error}</p>
+                    }
+                </div>
                 <div className='mb-4'>
                     <button
                         className='py-2 px-11 text-lg font-medium tracking-widest uppercase text-white bg-gray-800 hover:bg-gray-900 border-[1px] border-[#f4d699] rounded-md'
@@ -83,6 +100,8 @@ const Login = () => {
                 <div className='mb-6'>
                     <label htmlFor="remember" className="ml-2 text-sm font-medium">Don't have an account? <Link className='text-blue-600' to='/register'>Sign up</Link></label>
                 </div>
+
+                {/* Login with others */}
                 <div className='mb-4 flex justify-center items-center gap-4'>
                     <hr className='w-full opacity-70' />
                     <p>Or</p>

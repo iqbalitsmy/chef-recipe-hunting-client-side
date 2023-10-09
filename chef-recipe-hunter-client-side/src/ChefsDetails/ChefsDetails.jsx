@@ -1,22 +1,31 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useLoaderData, useParams } from 'react-router-dom';
 import ReactDOM from 'react-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBookmark } from '@fortawesome/free-solid-svg-icons'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const ChefsDetails = () => {
-    const { id } = useParams();
+    const [showToast, setShowToast] = useState(false);
     const chefDetails = useLoaderData();
     const { recipes, profile, name, yearsOfExperience, numberOfRecipes, likes, bio } = chefDetails;
 
+    const notify = (name) => {
+        setShowToast(!showToast)
+        return toast(`${name} add in favorite list`);
+    }
+
     return (
         <div className='bg-[#f2ece0] py-10 flex justify-center items-center flex-col'>
+            <ToastContainer />
             <div className="h-full md:w-1/3">
                 <figure className="px-10 h-72 w-full">
                     <img
                         src={profile}
                         alt="Profile"
                         className="rounded-xl h-full w-full object-contain"
+                        loading='lazy'
                     />
                 </figure>
                 <div className="py-4">
@@ -39,14 +48,12 @@ const ChefsDetails = () => {
                                 key={i}
                                 className="shadow-lg grid grid-cols-5 justify-center items-center gap-8 hover:scale-105 transition-all ease-in-out bg-[#e6dcc8] rounded-md p-8"
                             >
-                                {
-                                    console.log(recipe?.name)
-                                }
                                 <figure className=''>
                                     <img
                                         className='w-full h-full object-contain'
                                         src={recipe?.link}
-                                        alt="Movie"
+                                        alt="Recipes"
+                                        loading='lazy'
                                     />
                                 </figure>
                                 <div className='text-2xl font-extrabold flex text-center items-center'>
@@ -65,14 +72,17 @@ const ChefsDetails = () => {
                                     </ol>
                                 </div>
                                 <div className='h-full flex flex-col justify-around items-end'>
-                                    <div className='mb-8'>
-                                        <button type="button">
-                                            <FontAwesomeIcon
-                                                icon={faBookmark}
-                                                style={{ fontSize: 30 }}
-                                            />
-                                        </button>
-                                    </div>
+                                    <button
+                                        type="button"
+                                        className="font-bold rounded"
+                                        onClick={() => notify(recipes[i]?.name)}
+                                    >
+                                        <FontAwesomeIcon
+                                            icon={faBookmark}
+                                            style={{ fontSize: 30 }}
+                                            // className={`${showToast ? 'text-yellow-400' : 'text-black'}`}
+                                        />
+                                    </button>
                                     <div>
                                         <ul className="flex justify-center">
                                             <li>

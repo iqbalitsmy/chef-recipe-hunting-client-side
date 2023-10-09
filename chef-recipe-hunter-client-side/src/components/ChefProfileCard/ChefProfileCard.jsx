@@ -7,11 +7,16 @@ const ChefProfileCard = ({ chef }) => {
     return (
         <div className="shadow-xl">
             <figure className="px-10 pt-10 h-72 w-full">
-                <img
-                    src={profile}
-                    alt="Profile"
-                    className="rounded-xl h-full w-full object-contain"
-                />
+                <Link
+                    to={`/chefs/${id}`}
+                >
+                    <img
+                        src={profile}
+                        alt="Profile"
+                        className="rounded-xl h-full w-full object-contain"
+                        loading='lazy'
+                    />
+                </Link>
             </figure>
             <div className="my-4">
                 <h2 className="text-xl font-semibold text-center mb-4">{name}</h2>

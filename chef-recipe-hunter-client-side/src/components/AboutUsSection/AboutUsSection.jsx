@@ -3,7 +3,7 @@ import Testimonials from '../Testimonials/Testimonials';
 
 const AboutUsSection = () => {
     return (
-        <div className='py-24'>
+        <div className='pb-24'>
             <div className="mx-auto text-center md:max-w-xl lg:max-w-3xl">
                 <h3
                     className="mb-6 text-4xl font-bold text-neutral-800 dark:text-neutral-200">

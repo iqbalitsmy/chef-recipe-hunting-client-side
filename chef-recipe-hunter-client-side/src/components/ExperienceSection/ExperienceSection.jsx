@@ -9,6 +9,7 @@ const ExperienceSection = () => {
                         className="object-cover object-center w-full h-full"
                         src="https://alanzo.ancorathemes.com/wp-content/uploads/2017/09/bg-8.png"
                         alt="Image"
+                        loading='lazy'
                     />
                 </figure>
             </div>
